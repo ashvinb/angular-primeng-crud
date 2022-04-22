@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from './product';
+import { Product2 } from './product2';
 import { ProductService } from './productservice';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
@@ -25,12 +26,19 @@ export class AppComponent {
 
     selectedProducts: Product[];
 
+    products2: Product2[];
+
+    product2: Product2;
+
+    selectedProducts2: Product[];
+
     submitted: boolean;
 
     constructor(private productService: ProductService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
 
     ngOnInit() {
-        this.productService.getProducts().then(data => this.products = data);
+        //this.productService.getProducts().then(data => this.products = data);
+        this.productService.getProducts2().then(data => this.products = data);
     }
 
     openNew() {

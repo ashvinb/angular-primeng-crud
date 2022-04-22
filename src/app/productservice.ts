@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Product } from './product';
+import { Product3 } from './product2';
 
 @Injectable()
 export class ProductService {
@@ -56,6 +57,20 @@ export class ProductService {
         .then(res => <Product[]>res.data)
         .then(data => { return data; });
     }
+
+    getProducts3() {
+      return this.http.get<any>('http://localhost:61641/Home/GetProductLinkList')
+      .toPromise()
+      .then(res => <Product3[]>res.data)
+      .then(data => { return data; });
+  }
+
+    getProducts2() {
+      return this.http.get<any>('assets/products2.json')
+      .toPromise()
+      .then(res => <Product[]>res.data)
+      .then(data => { return data; });
+  }
 
     getProductsWithOrdersSmall() {
         return this.http.get<any>('assets/products-orders-small.json')
